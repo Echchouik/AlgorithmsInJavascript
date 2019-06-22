@@ -16,7 +16,17 @@
          magazineObj[word]++;
      });
 
-     console.log(magazineObj);
+     var noteIsPossible = true;
+     noteArr.forEach(word => {
+         if (magazineObj[word]) {
+             magazineObj[word]--;
+             if (magazineObj[word] < 0) noteIsPossible = false;
+         }
+         else noteIsPossible = false;
+     });
+
+     //return noteIsPossible;
+     console.log(noteIsPossible);
  }
 
- harmlessRansomNote('', 'this is all the magazine text in the magazine');
+ harmlessRansomNote('this text', 'this is all the magazine text in the magazine');
